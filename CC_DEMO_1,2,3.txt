@@ -1,0 +1,34 @@
+public class Demol{
+	public void CreateAccount(String Name,String Phone){
+		account acc = new account();
+		acc.Name = Name;
+		acc.Phone = Phone;
+		insert acc;
+		System.debug( 'Account has been inserted:' + acc.name);
+	}
+}
+
+
+public class Demo2 {
+	public void UpdateOlderAccount(String Name){
+		List<Account> oldAccounts = new List<Account>();
+		for(Account acc: [SELECT Name from Account WHERE Phone='785323674']){
+			acc.Name = Name;
+			oldAccounts.add(acc);
+			System.debug( 'Account has been updated ' + acc.name);
+		}
+		update oldAccounts;
+	}
+}
+
+
+public class Dem03 {
+	public void DeleteAccount(){
+		List<Account> oldAccounts = new List<Account>();
+		for(Account acc: [select Name,Phone from Account where Name='Smita']){
+			deletle acc;
+			System.debug( 'Account deleted:'+acc.name);
+		}
+		update oldAccounts;
+	}
+}
